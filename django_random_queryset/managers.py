@@ -25,7 +25,7 @@ class RandomManager(models.Manager):
             return getattr(self.__get_queryset(), attr, *args)
 
     def __get_queryset(self):
-        return queryset.RandomQuerySet(self.model, strategy=self._strategy)
+        return queryset.RandomQuerySet(self.model, strategy=self._strategy, name='')
 
     if django.VERSION[1] >= 7:
         get_queryset = __get_queryset
